@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{console.log('LCY3 Operations Hub started');document.getElementById('search').addEventListener('input',e=>console.log('Search:',e.target.value));});
