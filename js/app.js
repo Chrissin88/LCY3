@@ -3,13 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const notes = document.getElementById('notes');
   if (notes) {
-    const storedNotes = localStorage.getItem('lcy3-notes');
-    const normalizedNotes = typeof storedNotes === 'string'
-      ? storedNotes.replace(/[\u0000-\u001F\u007F]/g, '').slice(0, 10000)
-      : '';
-    notes.value = normalizedNotes;
+    const storedNotes = localStorage.getItem('lcy3-notes') || '';
+    let decodedNotes = '';
+    try {
+      decodedNotes = decodeURIComponent(storedNotes);
+    } catch {
+      decodedNotes = storedNotes;
+    }
+    notes.value = String(decodedNotes).slice(0, 10000);
     notes.addEventListener('input', () => {
-      localStorage.setItem('lcy3-notes', String(notes.value).slice(0, 10000));
+      const safeText = encodeURIComponent(String(notes.value).slice(0, 10000));
+      localStorage.setItem('lcy3-notes', safeText);
     });
   }
 

@@ -212,6 +212,15 @@ main {
 }
 
 /* ── Notes area ────────────────────────────────────────────── */
+.field-label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  color: var(--muted);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
 #notes {
   width: 100%;
   min-height: 140px;
