@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LCY3 Dashboard</title>
+  <meta name="description" content="LCY3 Operations Dashboard" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-brand">
+      <div class="logo" aria-hidden="true">L3</div>
+      <h1>LCY3 Operations Dashboard</h1>
+    </div>
+    <div class="search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
+      </svg>
+      <input id="search" type="search" placeholder="Search cards &amp; links…" autocomplete="off" />
+    </div>
+  </header>
+
+  <main>
+    <section class="stats-grid" aria-label="Key metrics">
+      <article class="stat-card" data-searchable="shifts today">
+        <span class="stat-icon" aria-hidden="true">📦</span>
+        <span class="stat-value" id="stat-shifts">—</span>
+        <span class="stat-label">Shifts Today</span>
+      </article>
+      <article class="stat-card" data-searchable="packages processed">
+        <span class="stat-icon" aria-hidden="true">🔄</span>
+        <span class="stat-value" id="stat-packages">—</span>
+        <span class="stat-label">Packages Processed</span>
+      </article>
+      <article class="stat-card" data-searchable="associates on site">
+        <span class="stat-icon" aria-hidden="true">👷</span>
+        <span class="stat-value" id="stat-associates">—</span>
+        <span class="stat-label">Associates On Site</span>
+      </article>
+      <article class="stat-card" data-searchable="open tickets">
+        <span class="stat-icon" aria-hidden="true">🎫</span>
+        <span class="stat-value" id="stat-tickets">—</span>
+        <span class="stat-label">Open Tickets</span>
+      </article>
+    </section>
+
+    <section class="panel" id="panel-links" aria-label="Quick links">
+      <div class="panel-header">
+        <span aria-hidden="true">🔗</span>
+        <h2>Quick Links</h2>
+      </div>
+      <div class="links-grid" id="links-grid">
+        <a class="link-card" href="#" data-searchable="schedule roster"><span class="link-icon">📅</span>Schedule &amp; Roster</a>
+        <a class="link-card" href="#" data-searchable="safety incidents"><span class="link-icon">🦺</span>Safety &amp; Incidents</a>
+        <a class="link-card" href="#" data-searchable="performance metrics kpi"><span class="link-icon">📊</span>Performance Metrics</a>
+        <a class="link-card" href="#" data-searchable="training modules"><span class="link-icon">🎓</span>Training Modules</a>
+        <a class="link-card" href="#" data-searchable="it support helpdesk"><span class="link-icon">🖥️</span>IT Support</a>
+        <a class="link-card" href="#" data-searchable="hr people connect"><span class="link-icon">🤝</span>HR / People Connect</a>
+        <a class="link-card" href="#" data-searchable="quality control defects"><span class="link-icon">✅</span>Quality Control</a>
+        <a class="link-card" href="#" data-searchable="reports downloads"><span class="link-icon">📄</span>Reports</a>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-notes" aria-label="Shift notes">
+      <div class="panel-header">
+        <span aria-hidden="true">📝</span>
+        <h2>Shift Notes</h2>
+      </div>
+      <textarea id="notes" placeholder="Add your shift notes here…"></textarea>
+    </section>
+  </main>
+
+  <footer>LCY3 Operations Dashboard — Internal use only</footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
