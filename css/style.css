@@ -233,6 +233,12 @@ main {
   border: 0;
 }
 
+.field-help {
+  margin-top: .5rem;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
 #notes {
   width: 100%;
   min-height: 140px;

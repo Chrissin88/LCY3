@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let decodedNotes = '';
     try {
       decodedNotes = decodeURIComponent(storedNotes);
-    } catch {
+    } catch (error) {
+      console.warn('Unable to decode stored notes; using raw value fallback.', error);
       decodedNotes = storedNotes;
     }
     notes.value = decodedNotes.slice(0, MAX_NOTE_LENGTH);
