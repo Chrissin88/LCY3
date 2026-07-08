@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('LCY3 Operations Hub started');
+  const MAX_NOTE_LENGTH = 10000;
 
   const notes = document.getElementById('notes');
   if (notes) {
@@ -10,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch {
       decodedNotes = storedNotes;
     }
-    notes.value = String(decodedNotes).slice(0, 10000);
+    notes.value = String(decodedNotes).slice(0, MAX_NOTE_LENGTH);
     notes.addEventListener('input', () => {
-      const safeText = encodeURIComponent(String(notes.value).slice(0, 10000));
+      const safeText = encodeURIComponent(String(notes.value).slice(0, MAX_NOTE_LENGTH));
       localStorage.setItem('lcy3-notes', safeText);
     });
   }
