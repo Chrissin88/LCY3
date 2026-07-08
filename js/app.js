@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch {
       decodedNotes = storedNotes;
     }
-    notes.value = String(decodedNotes).slice(0, MAX_NOTE_LENGTH);
+    notes.value = decodedNotes.slice(0, MAX_NOTE_LENGTH);
     notes.addEventListener('input', () => {
-      const safeText = encodeURIComponent(String(notes.value).slice(0, MAX_NOTE_LENGTH));
+      const safeText = encodeURIComponent(notes.value.slice(0, MAX_NOTE_LENGTH));
       localStorage.setItem('lcy3-notes', safeText);
     });
   }
