@@ -13,10 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const storedNotes = localStorage.getItem('lcy3-notes') || '';
     let decodedNotes = '';
-    try {
-      decodedNotes = decodeURIComponent(storedNotes);
-    } catch (error) {
-      console.warn('Unable to decode stored notes; using raw value fallback.', error);
+    const hasInvalidEncoding = /%(?![0-9A-Fa-f]{2})/.test(storedNotes);
+    if (!hasInvalidEncoding) {
+      try {
+        decodedNotes = decodeURIComponent(storedNotes);
+      } catch (error) {
+        console.warn('Unable to decode stored notes; using raw value fallback.', error);
+        decodedNotes = storedNotes;
+      }
+    } else {
       decodedNotes = storedNotes;
     }
     notes.value = decodedNotes.slice(0, MAX_NOTE_LENGTH);
@@ -24,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     notes.addEventListener('input', () => {
       const safeText = encodeURIComponent(notes.value.slice(0, MAX_NOTE_LENGTH));
       localStorage.setItem('lcy3-notes', safeText);
-      if (notes.value.length > MAX_NOTE_LENGTH) {
-        notes.value = notes.value.slice(0, MAX_NOTE_LENGTH);
-      }
+      notes.value = notes.value.slice(0, MAX_NOTE_LENGTH);
       updateNotesCount();
     });
   }
